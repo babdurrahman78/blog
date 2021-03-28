@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="home">
       {/* nullish coalescing */}
-      {isPending && <p>Loading... please wait</p>}
+      {isPending && <p>Loading... </p>}
       {blogs && <BlogList blogs = {blogs} title = 'All Blog' deleteBlog={deleteBlog}/>}
     </div>
   );
