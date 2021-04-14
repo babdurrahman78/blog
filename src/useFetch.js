@@ -5,21 +5,33 @@ const useFetch = (url) => {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Data tidak ditemukan");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setData(data);
-        setIsPending(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setIsPending(false);
-      });
+    let mounted = true;
+    setTimeout(() => {
+        fetch(url)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Data tidak ditemukan");
+          }
+          return res.json();
+        })
+        .then((data) => {
+            if(mounted){
+                setData(data);
+                setIsPending(false);
+            }
+        })
+        .catch((err) => {
+            if(mounted){
+                setError(err.message);
+                setIsPending(false);
+            }
+        });
+    }
+    , 3000)
+
+    return function cleanUp(){
+        mounted = false;
+    }
   }, [url]);
 
   return { data, setData, isPending, error}
