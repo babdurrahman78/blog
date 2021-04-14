@@ -27,7 +27,7 @@ const useFetch = (url) => {
             }
         });
     }
-    , 3000)
+    , 1000)
 
     return function cleanUp(){
         mounted = false;
