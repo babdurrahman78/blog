@@ -49,8 +49,11 @@ const Create = () => {
 
         <label>Blog author:</label>
         <select value={author} onChange={(e) => setAuthor(e.target.value)}>
-          <option value="mario">Bilal</option>
-          <option value="yoshi">Alex</option>
+          {blogs && blogs.map((blog) => {
+            return (
+              <option value={blog.author}>{blog.author}</option>
+            )
+          })}
         </select>
         {isPending && <button className="pending">Adding Blog..</button>}
         {!isPending && <button className="done">Add Blog</button>}
