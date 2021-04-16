@@ -5,7 +5,7 @@ const BlogList = ({ blogs, title }) => {
   return (
     <div>
       <div className="blog-list">
-        <h2>{title}</h2>
+        <h2 className="blog-list-title">{title}</h2>
         {blogs.map((blog) => {
           return (
             <div className="blog-previews" key={blog.id}>
