@@ -1,6 +1,7 @@
+import '../css/Create.css';
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import useFetch from "./useFetch";
+import useFetch from "../api/useFetch";
 
 const Create = () => {
   const [title, setTitle] = useState("");
