@@ -8,9 +8,12 @@
 }
 
 .content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: auto;
 }
 
-
+.home,
+.blog-details
+{
+  max-width: 600px;
+  margin: auto;
+}

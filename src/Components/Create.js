@@ -1,4 +1,5 @@
-import '../css/Create.css';
+import "../css/Create.css";
+import Navbar from "./Navbar";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import useFetch from "../api/useFetch";
@@ -24,40 +25,42 @@ const Create = () => {
     }).then(() => {
       console.log("new blog");
       setIsPending(false);
-      history.push(`/blogs/${blogs.length+1}`);
+      history.push(`/blogs/${blogs.length + 1}`);
     });
   };
 
   return (
-    <div className="create">
-      <h2>Add a new Blog</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Blog title:</label>
-        <input
-          type="text"
-          required
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        ></input>
+    <div>
+      <Navbar />
+      <div className="create">
+        <h2>Add a new Blog</h2>
+        <form onSubmit={handleSubmit}>
+          <label>Blog title:</label>
+          <input
+            type="text"
+            required
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          ></input>
 
-        <label>Blog body:</label>
-        <textarea
-          required
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        ></textarea>
+          <label>Blog body:</label>
+          <textarea
+            required
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          ></textarea>
 
-        <label>Blog author:</label>
-        <select value={author} onChange={(e) => setAuthor(e.target.value)}>
-          {blogs && blogs.map((blog) => {
-            return (
-              <option value={blog.author}>{blog.author}</option>
-            )
-          })}
-        </select>
-        {isPending && <button className="pending">Adding Blog..</button>}
-        {!isPending && <button className="done">Add Blog</button>}
-      </form>
+          <label>Blog author:</label>
+          <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+            {blogs &&
+              blogs.map((blog) => {
+                return <option value={blog.author}>{blog.author}</option>;
+              })}
+          </select>
+          {isPending && <button className="pending">Adding Blog..</button>}
+          {!isPending && <button className="done">Add Blog</button>}
+        </form>
+      </div>
     </div>
   );
 };
