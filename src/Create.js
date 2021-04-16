@@ -4,13 +4,26 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("Bilal");
+  const [isPending, setIsPending] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const blog = {title, body, author}
 
-        console.log(blog);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const blog = { title, body, author };
+    
+    setIsPending(true);
+
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog)
+    }).then(() => {
+      console.log('new blog')
+      setIsPending(false);
+    })
+
+    console.log(blog);
+  };
 
   return (
     <div className="create">
@@ -36,13 +49,12 @@ const Create = () => {
           <option value="mario">Bilal</option>
           <option value="yoshi">Alex</option>
         </select>
-        <button>Add Blog</button>
+        { isPending && <button className="pending">Adding Blog..</button> }
+        { !isPending && <button>Add Blog</button> }
+        
       </form>
     </div>
   );
 };
 
 export default Create;
-<div className="create">
-  <h2>Add a new Page</h2>
-</div>;

@@ -6,8 +6,7 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     let mounted = true;
-    setTimeout(() => {
-        fetch(url)
+    fetch(url)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Data tidak ditemukan");
@@ -26,8 +25,6 @@ const useFetch = (url) => {
                 setIsPending(false);
             }
         });
-    }
-    , 1000)
 
     return function cleanUp(){
         mounted = false;
@@ -40,3 +37,4 @@ const useFetch = (url) => {
 // npx json-server --watch data/db.json --port 8000
 
 export default useFetch;
+
