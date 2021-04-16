@@ -20,6 +20,15 @@
 .navbar .links {
   margin-left: auto;
 }
+
+.navbar .links a:hover {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
@@ -67,7 +76,7 @@
 .blog-details button {
   margin: 10px 0px;
   width: 100px;
-  font-size: 20px;
+  font-size: px;
   background: #f1356d;
   color: #fff;
   border: 0;
