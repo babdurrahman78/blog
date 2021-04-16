@@ -6,8 +6,7 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     let mounted = true;
-    setTimeout(() => {
-      fetch(url)
+    fetch(url)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Data tidak ditemukan");
@@ -26,7 +25,6 @@ const useFetch = (url) => {
                 setIsPending(false);
             }
         });
-    },)
 
     return function cleanUp(){
         mounted = false;

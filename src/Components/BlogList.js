@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../css/BlogList.css";
-import Navbar from "./Navbar";
 
 const BlogList = ({ blogs, title }) => {
   return (

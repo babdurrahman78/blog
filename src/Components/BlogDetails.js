@@ -1,4 +1,4 @@
-import "../css/BlogDetails.css";
+import '../css/BlogDetails.css';
 import Navbar from "./Navbar";
 import { useParams, useHistory } from "react-router-dom";
 import useFetch from "../api/useFetch";
@@ -11,27 +11,27 @@ const BlogDetails = () => {
   );
 
   const handleClick = () => {
-    fetch("http://localhost:8000/blogs/" + blog.id, {
-      method: "DELETE",
+    fetch('http://localhost:8000/blogs/' + blog.id, {
+      method: 'DELETE'
     }).then(() => {
-      history.push("/");
-    });
-  };
+      history.push('/')
+    })
+  }
   return (
     <div>
       <Navbar />
       <div className="blog-details">
-        {error && <p>{error}</p>}
-        {isPending && <p>Loading... </p>}
-        {blog && (
-          <article>
-            <h2>{blog.title}</h2>
-            <p>Written by {blog.author}</p>
-            <div>{blog.body}</div>
-            <button onClick={handleClick}>delete</button>
-          </article>
-        )}
-      </div>
+      { error && <p>{ error }</p>}
+      { isPending && <p>Loading... </p>}
+      { blog && (
+        <article>
+          <h2>{ blog.title }</h2>
+          <p>Written by { blog.author }</p>
+          <div>{ blog.body }</div>
+          <button onClick={handleClick}>delete</button>
+        </article>
+      )}
+    </div>
     </div>
   );
 };
