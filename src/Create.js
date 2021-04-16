@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import useFetch from "./useFetch";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -7,6 +8,7 @@ const Create = () => {
   const [author, setAuthor] = useState("Bilal");
   const [isPending, setIsPending] = useState(false);
   const history = useHistory();
+  const { data: blogs } = useFetch("http://localhost:8000/blogs");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const Create = () => {
     }).then(() => {
       console.log("new blog");
       setIsPending(false);
-      history.push("/");
+      history.push(`/blogs/${blogs.length+1}`);
     });
   };
 
