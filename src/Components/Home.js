@@ -1,5 +1,4 @@
 import BlogList from "./BlogList";
-import Navbar from "./Navbar";
 import useFetch from "../api/useFetch";
 // imrs
 const Home = () => {
@@ -9,7 +8,6 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="home">
         {/* nullish coalescing */}
         {error && <p>{error}</p>}

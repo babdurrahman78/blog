@@ -1,5 +1,4 @@
 import '../css/BlogDetails.css';
-import Navbar from "./Navbar";
 import { useParams, useHistory } from "react-router-dom";
 import useFetch from "../api/useFetch";
 
@@ -19,7 +18,6 @@ const BlogDetails = () => {
   }
   return (
     <div>
-      <Navbar />
       <div className="blog-details">
       { error && <p>{ error }</p>}
       { isPending && <p>Loading... </p>}

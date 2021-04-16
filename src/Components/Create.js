@@ -1,5 +1,4 @@
 import "../css/Create.css";
-import Navbar from "./Navbar";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import useFetch from "../api/useFetch";
@@ -31,7 +30,6 @@ const Create = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="create">
         <h2>Add a new Blog</h2>
         <form onSubmit={handleSubmit}>
