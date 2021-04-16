@@ -18,7 +18,7 @@ const Create = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog)
     }).then(() => {
-      console.log('new blog')
+      console.log('new blog');
       setIsPending(false);
     })
 
@@ -50,7 +50,7 @@ const Create = () => {
           <option value="yoshi">Alex</option>
         </select>
         { isPending && <button className="pending">Adding Blog..</button> }
-        { !isPending && <button>Add Blog</button> }
+        { !isPending && <button className="done">Add Blog</button> }
         
       </form>
     </div>

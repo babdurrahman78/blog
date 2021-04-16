@@ -87,9 +87,17 @@
   box-sizing: border-box;
   display: block;
 }
-.create button {
+.create .done {
   background: #f1356d;
   color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create .pending {
+  color: #333;
   border: 0;
   padding: 8px;
   border-radius: 8px;
