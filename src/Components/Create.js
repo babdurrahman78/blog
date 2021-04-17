@@ -8,13 +8,14 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("Bilal");
+  const [img, setImg] = useState("");
   const [isPending, setIsPending] = useState(false);
   const history = useHistory();
   const { data: blogs } = useFetch("http://localhost:8000/blogs");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title, body, author };
+    const blog = { title, img, body, author };
 
     setIsPending(true);
 
@@ -55,7 +56,13 @@ const Create = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           ></input>
-
+          <label>Blog image:</label>
+          <input
+            type="text"
+            required
+            value={img}
+            onChange={(e) => setImg(e.target.value)}
+          ></input>
           <label>Blog body:</label>
           <textarea
             required
