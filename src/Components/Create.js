@@ -25,8 +25,22 @@ const Create = () => {
     }).then(() => {
       console.log("new blog");
       setIsPending(false);
-      history.push(`/blogs/${blogs.length + 1}`);
-    });
+    }).then(() => {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          const newBlogs= data;
+          const val = []
+          newBlogs.map(blog => {
+            val.push(blog.id);
+            return val;
+          });
+          const id = Math.max(...val);
+          history.push(`/blogs/${id}`);
+        })
+    })
   };
 
   return (
