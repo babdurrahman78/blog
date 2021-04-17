@@ -8,14 +8,6 @@
   margin-bottom: 15px;
 }
 
-.blog-details button {
-  margin: 10px 0px;
-  width: 100px;
-  font-size: px;
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
+.delete-button{
+  margin: 10px 0;
 }

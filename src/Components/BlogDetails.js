@@ -1,5 +1,6 @@
 import '../css/BlogDetails.css';
 import { useParams, useHistory } from "react-router-dom";
+import { Button } from 'reactstrap';
 import useFetch from "../api/useFetch";
 
 const BlogDetails = () => {
@@ -26,7 +27,7 @@ const BlogDetails = () => {
           <h2>{ blog.title }</h2>
           <p>Written by { blog.author }</p>
           <div>{ blog.body }</div>
-          <button onClick={handleClick}>delete</button>
+          <Button color="danger" className="delete-button" onClick={handleClick}>delete</Button>
         </article>
       )}
     </div>

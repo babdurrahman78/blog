@@ -1,5 +1,6 @@
 import "../css/Create.css";
 import { useState } from "react";
+import { Button } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import useFetch from "../api/useFetch";
 
@@ -55,7 +56,7 @@ const Create = () => {
               })}
           </select>
           {isPending && <button className="pending">Adding Blog..</button>}
-          {!isPending && <button className="done">Add Blog</button>}
+          {!isPending && <Button color="success">Add Blog</Button>}
         </form>
       </div>
     </div>
