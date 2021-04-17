@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Card, Button, CardTitle, CardSubtitle } from 'reactstrap';
 import "../css/BlogList.css";
 
 const BlogList = ({ blogs, title }) => {
@@ -9,10 +10,13 @@ const BlogList = ({ blogs, title }) => {
         {blogs.map((blog) => {
           return (
             <div className="blog-previews" key={blog.id}>
-              <Link to={`/blogs/${blog.id}`}>
-                <h2>{blog.title}</h2>
-                <p>Written by {blog.author}</p>
-              </Link>
+              <Card body>
+                <CardTitle tag="h5">{blog.title}</CardTitle>
+                <CardSubtitle tag="h6" className="mb-2 text-muted">
+                  Written by {blog.author}
+                </CardSubtitle>
+                <Link to={`/blogs/${blog.id}`}><Button color="success">Read More..</Button></Link>
+              </Card>
             </div>
           );
         })}

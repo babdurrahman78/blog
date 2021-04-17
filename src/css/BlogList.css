@@ -18,6 +18,8 @@
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.blog-previews a {
+.blog-previews button {
+  width: 100%;
+  color: white;
   text-decoration: none;
 }
