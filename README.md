@@ -1,3 +1,7 @@
+# The project not yet deployed
+
+demo my project on your local by doing these step below:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
