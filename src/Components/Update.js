@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Button } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 
-const Create = () => {
-
+const Update = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
@@ -75,12 +74,12 @@ const Create = () => {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           ></input>
-          {isPending && <button className="pending">Adding Blog..</button>}
-          {!isPending && <Button color="success">Add Blog</Button>}
+          {isPending && <button className="pending">Updating Blog..</button>}
+          {!isPending && <Button color="success">Update Blog</Button>}
         </form>
       </div>
     </div>
   );
 };
 
-export default Create;
+export default Update;

@@ -1,6 +1,6 @@
-import '../css/BlogDetails.css';
-import { useParams, useHistory } from "react-router-dom";
-import { Button } from 'reactstrap';
+import "../css/BlogDetails.css";
+import { useParams, useHistory, Link } from "react-router-dom";
+import { Button } from "reactstrap";
 import useFetch from "../api/useFetch";
 
 const BlogDetails = () => {
@@ -11,26 +11,35 @@ const BlogDetails = () => {
   );
 
   const handleClick = () => {
-    fetch('http://localhost:8000/blogs/' + blog.id, {
-      method: 'DELETE'
+    fetch("http://localhost:8000/blogs/" + blog.id, {
+      method: "DELETE",
     }).then(() => {
-      history.push('/')
-    })
-  }
+      history.push("/");
+    });
+  };
   return (
     <div>
       <div className="blog-details">
-      { error && <p>{ error }</p>}
-      { isPending && <p>Loading... </p>}
-      { blog && (
-        <article>
-          <h2>{ blog.title }</h2>
-          <p>Written by { blog.author }</p>
-          <div>{ blog.body }</div>
-          <Button color="danger" className="delete-button" onClick={handleClick}>delete</Button>
-        </article>
-      )}
-    </div>
+        {error && <p>{error}</p>}
+        {isPending && <p>Loading... </p>}
+        {blog && (
+          <article>
+            <h2>{blog.title}</h2>
+            <p>Written by {blog.author}</p>
+            <div>{blog.body}</div>
+            <Link to={`/blogs/${blog.id}`}>
+              <Button color="success">Update</Button>
+            </Link>
+            <Button
+              color="danger"
+              className="delete-button"
+              onClick={handleClick}
+            >
+              delete
+            </Button>
+          </article>
+        )}
+      </div>
     </div>
   );
 };

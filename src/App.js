@@ -1,5 +1,6 @@
 import Home from "./Components/Home";
 import Create from "./Components/Create";
+import Update from "./Components/Update";
 import Navbar from "./Components/Navbar";
 import BlogDetails from "./Components/BlogDetails";
 import NotFound from "./Components/NotFound";
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/create">
               <Create />
+            </Route>
+            <Route path="/update/:id">
+              <Update />
             </Route>
             <Route path="/blogs/:id">
               <BlogDetails />
