@@ -52,7 +52,7 @@ const Create = () => {
           <input
             type="text"
             required
-            value={title}
+            value=""
             onChange={(e) => setTitle(e.target.value)}
           ></input>
           <label>Blog image:</label>

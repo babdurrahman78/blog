@@ -27,7 +27,7 @@ const BlogDetails = () => {
             <h2>{blog.title}</h2>
             <p>Written by {blog.author}</p>
             <div>{blog.body}</div>
-            <Link to={`/blogs/${blog.id}`}>
+            <Link to={`/update/${blog.id}`}>
               <Button color="success">Update</Button>
             </Link>
             <Button

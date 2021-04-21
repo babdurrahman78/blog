@@ -1,51 +1,47 @@
 import "../css/Create.css";
 import { useState } from "react";
-import { Button } from 'reactstrap';
-import { useHistory } from "react-router-dom";
+import { Button } from "reactstrap";
+import { useParams, useHistory } from "react-router-dom";
 
-const Update = () => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("");
-  const [img, setImg] = useState("");
-  const [isPending, setIsPending] = useState(false);
+const Update = ({blogs}) => {
+  const { id } = useParams();
   const history = useHistory();
-
+  // const { data: blog } = useFetch(
+  //   "http://localhost:8000/blogs/" + id
+  // )
+  const data = []
+  for(let i = 0;i<blogs.length;i++){
+    if(blogs[i]["id"] == id){
+      data.push(blogs[i])
+    }
+  }
+  const blog = data[0];
+  const [title, setTitle] = useState(blog.title);
+  const [body, setBody] = useState(blog.body);
+  const [author, setAuthor] = useState(blog.author);
+  const [img, setImg] = useState(blog.img);
+  const [isPending, setIsPending] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, img, body, author };
 
     setIsPending(true);
 
-    fetch("http://localhost:8000/blogs", {
-      method: "POST",
+    fetch("http://localhost:8000/blogs/" + id, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
     }).then(() => {
       console.log("new blog");
       setIsPending(false);
-    }).then(() => {
-      fetch("http://localhost:8000/blogs")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          const newBlogs= data;
-          const val = []
-          newBlogs.map(blog => {
-            val.push(blog.id);
-            return val;
-          });
-          const id = Math.max(...val);
-          history.push(`/blogs/${id}`);
-        })
-    })
+      history.push("/");
+    });
   };
 
   return (
     <div>
       <div className="create">
-        <h2>Add a new Blog</h2>
+        <h2>Update the blog</h2>
         <form onSubmit={handleSubmit}>
           <label>Blog title:</label>
           <input
